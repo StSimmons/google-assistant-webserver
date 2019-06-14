@@ -1,5 +1,7 @@
 FROM multiarch/debian-debootstrap:armhf-stretch
 
+COPY qemu-arm-static /usr/bin/qemu-arm-static
+
 # Install packages
 RUN apt-get update
 RUN apt-get install -y jq tzdata python3 python3-dev python3-pip \
@@ -18,6 +20,7 @@ RUN rm -rf /var/lib/apt/lists/*
 # Copy data
 COPY run.sh /
 COPY *.py /
+COPY .asoundrc /root/.asoundrc
 
 RUN chmod a+x /run.sh
 

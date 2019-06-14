@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+ls /dev
+cat /proc/asound/cards 
+arecord -l
+aplay -l
+cat /root/.asoundrc
+
 ACCESS_TOKEN=access_token.json
 
 if [ ! -f "/config/$ACCESS_TOKEN" ] && [ -f "/config/$CLIENT_SECRET" ]; then
